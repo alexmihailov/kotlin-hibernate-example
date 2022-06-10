@@ -1,5 +1,6 @@
 package com.witcher.problem
 
+import org.hibernate.Hibernate
 import javax.persistence.CascadeType
 import javax.persistence.Column
 import javax.persistence.Entity
@@ -18,8 +19,21 @@ data class OwnerEntity(
     @Column(name = "data", nullable = true)
     val data: String?,
     @OneToMany(mappedBy = "owner", cascade = [CascadeType.ALL])
-    val children: List<ChildEntity>? = listOf()
-)
+    val children: Set<ChildEntity>? = setOf()
+) {
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null || Hibernate.getClass(this) != Hibernate.getClass(other)) return false
+        other as OwnerEntity
+
+        return id == other.id
+    }
+
+    override fun hashCode(): Int {
+        return javaClass.hashCode()
+    }
+}
 
 @Entity
 @Table(name = "child")
@@ -35,5 +49,17 @@ data class ChildEntity(
 ) {
     override fun toString(): String {
         return "ChildEntity(id=$id, data=$data, ownerId=${owner.id})"
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null || Hibernate.getClass(this) != Hibernate.getClass(other)) return false
+        other as ChildEntity
+
+        return id == other.id
+    }
+
+    override fun hashCode(): Int {
+        return javaClass.hashCode()
     }
 }

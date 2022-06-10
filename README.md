@@ -13,3 +13,13 @@ java.lang.StackOverflowError
 ```
 ### Решение:
 Переопределим метод `toString` для `ChildEntity`.
+
+# Проблема 3
+```
+java.lang.StackOverflowError
+	at org.h2.command.Parser.readTerm(Parser.java:5224)
+```
+### Решение:
+Переопределим методы `equals`, `hashCode` для сущностей.
+[Guide](https://thorben-janssen.com/ultimate-guide-to-implementing-equals-and-hashcode-with-hibernate/)
+
