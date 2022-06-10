@@ -28,8 +28,12 @@ data class ChildEntity(
     @Column(name = "id", unique = true, nullable = false)
     val id: Int,
     @Column(name = "data", nullable = true)
-    var data: String?,
+    val data: String?,
     @ManyToOne
     @JoinColumn(name = "owner_id")
-    var owner: OwnerEntity
-)
+    val owner: OwnerEntity
+) {
+    override fun toString(): String {
+        return "ChildEntity(id=$id, data=$data, ownerId=${owner.id})"
+    }
+}
