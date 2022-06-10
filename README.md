@@ -1,6 +1,6 @@
 # Проблема 1
 ```
-org.hibernate.InstantiationException: No default constructor for entity:  : com.witcher.problem.OwnerEntity
+org.hibernate.InstantiationException: No default constructor for entity:  : com.witcher.OwnerEntity
 ```
 ### Решение:
 Подключить [no-arg-plugin](https://kotlinlang.org/docs/no-arg-plugin.html).
@@ -9,7 +9,7 @@ org.hibernate.InstantiationException: No default constructor for entity:  : com.
 # Проблема 2
 ```
 java.lang.StackOverflowError
-	at com.witcher.problem.ChildEntity.toString(Entities.kt)
+	at com.witcher.ChildEntity.toString(Entities.kt)
 ```
 ### Решение:
 Переопределим метод `toString` для `ChildEntity`.
@@ -31,3 +31,5 @@ org.hibernate.AnnotationException: Collection has neither generic type or OneToM
 Меняем `Set` на `MutableSet`
 
 
+# Best Practices
+[Best Practices and Common Pitfalls of Using JPA (Hibernate) with Kotlin](https://www.jpa-buddy.com/blog/best-practices-and-common-pitfalls/)
