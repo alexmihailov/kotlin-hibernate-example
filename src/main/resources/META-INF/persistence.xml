@@ -11,10 +11,14 @@
       -->
     <persistence-unit name="defaultPersistenceUnit">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!-- Конфиги для примера с репозиторием (удалить для другого примера)-->
+<!--        <non-jta-data-source>DefaultDS</non-jta-data-source>-->
         <properties>
+            <!-- Общие конфиги -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.connection.driver_class" value="org.h2.Driver"/>
+            <!-- Конфиги для примеров с проблемами (удалить для другого примера)-->
             <property name="hibernate.connection.username" value="sa"/>
             <property name="hibernate.connection.password" value=""/>
             <property name="hibernate.connection.url" value="jdbc:h2:mem:testdb;INIT=RUNSCRIPT FROM 'classpath:create.sql'"/>

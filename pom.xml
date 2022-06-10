@@ -17,6 +17,9 @@
         <hibernate.version>5.4.22.Final</hibernate.version>
         <h2.version>2.1.212</h2.version>
         <java.version>11</java.version>
+        <play.version>2.8.16</play.version>
+        <play.repository.version>0.1.0</play.repository.version>
+        <scala.binary.version>2.13</scala.binary.version>
     </properties>
 
     <build>
@@ -91,6 +94,39 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>${h2.version}</version>
+        </dependency>
+        <!--Play-->
+        <dependency>
+            <groupId>com.typesafe.play</groupId>
+            <artifactId>play-guice_${scala.binary.version}</artifactId>
+            <version>${play.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.play</groupId>
+            <artifactId>play-jdbc_${scala.binary.version}</artifactId>
+            <version>${play.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.play</groupId>
+            <artifactId>play-java-jpa_${scala.binary.version}</artifactId>
+            <version>${play.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.typesafe.play</groupId>
+            <artifactId>play-test_${scala.binary.version}</artifactId>
+            <version>${play.version}</version>
+        </dependency>
+        <!--Taymyr-->
+        <dependency>
+            <groupId>org.taymyr.play</groupId>
+            <artifactId>play-repository-jpa-java_${scala.binary.version}</artifactId>
+            <version>${play.repository.version}</version>
+        </dependency>
+        <!--Logging-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.2.6</version>
         </dependency>
         <!--Tests-->
         <dependency>
