@@ -23,3 +23,11 @@ java.lang.StackOverflowError
 Переопределим методы `equals`, `hashCode` для сущностей.
 [Guide](https://thorben-janssen.com/ultimate-guide-to-implementing-equals-and-hashcode-with-hibernate/)
 
+# Проблема 4
+```
+org.hibernate.AnnotationException: Collection has neither generic type or OneToMany.targetEntity()
+```
+### Решение:
+Меняем `Set` на `MutableSet`
+
+
